@@ -57,7 +57,6 @@ c2.metric("Salário médio", f"US$ {round(df_f['salary_in_usd'].mean()):,}")
 c3.metric("Salário mediano", f"US$ {round(df_f['salary_in_usd'].median()):,}")
 st.divider()
 
-# ---- linha 1 ----
 ca, cb = st.columns(2)
 with ca:
     st.subheader("Salário médio por senioridade")
@@ -77,7 +76,6 @@ with cb:
     ax.set_xlabel("Salário médio (US$)"); ax.set_ylabel("")
     fundo_transparente(fig, ax); st.pyplot(fig)
 
-# ---- linha 2 ----
 cc, cd = st.columns(2)
 with cc:
     st.subheader("Evolução do salário médio (2020–2023)")
@@ -98,9 +96,9 @@ with cd:
         ax.text(i, v, f"US$ {v:,.0f}", ha="center", va="bottom", color=TEXTO, fontsize=9)
     ax.set_xlabel(""); ax.set_ylabel("Salário médio (US$)"); ax.margins(y=0.15)
     fundo_transparente(fig, ax); st.pyplot(fig)
+    # 'Híbrido' tem poucos registros; o aviso evita comparações indevidas
     st.caption("⚠️ 'Híbrido' tem poucos registros — compare com cautela.")
 
-# ---- linha 3 ----
 ce, cf = st.columns(2)
 with ce:
     st.subheader("Salário médio por tamanho de empresa")
@@ -125,7 +123,6 @@ with cf:
     ax.set_aspect("equal"); fig.patch.set_alpha(0)
     st.pyplot(fig)
 
-# ---- linha 4: mapa de calor ----
 cg, ch = st.columns([3, 2])
 with cg:
     st.subheader("Salário médio: senioridade × modalidade")
